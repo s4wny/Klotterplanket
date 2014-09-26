@@ -7,5 +7,20 @@ if(isset($_POST["post_ids"]))					//We want the ids of the posts that we have se
 
 $db = new PDO('mysql:host=localhost;dbname=Klotter;charset=utf8', 'root', 'toor'); //Initiate a connection, 
 
+$limit = 20;
+$start = 0;
+foreach ($db->query("SELECT * FROM posts") as $row) {
+	if(in_array($row['ID'], $ids))
+		continue;
+	$data[$row['ID']] = array('comment' => $row['comment'], 'user_name' => getUserNameByID($row['ID']), 'date' => $row['time_posted']);
+	if($start >= $limit)
+		break;
+	$start++;
+}
 
 echo json_encode($data);
+
+function getUserNameByID($id)
+{
+	return "Awesome name like Filip - " . $id; //Just some temp code
+}
