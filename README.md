@@ -1,6 +1,6 @@
 <snippet>
-<content><![CDATA[
-# ${1:Klotterplank}
+<content>
+# {Klotterplank}
 
 Ett forum för att dela komentrer med sin klasskompisar. Upplagd för att lära ut SQL injection, XXS och ajax.
 
@@ -64,6 +64,5 @@ Filip "25F7" Lindvall
 ## License
  Free->for->all;
 
-]]></content>
-<tabTrigger>readme</tabTrigger>
+</content>
 </snippet>
