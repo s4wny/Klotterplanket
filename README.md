@@ -5,10 +5,10 @@
 Ett forum för att dela komentrer med sin klasskompisar. Upplagd för att lära ut SQL injection, XXS och ajax.
 
 ###Funktionalitet:
-Registrera sig (hashning) \n
-Logga in (SQLi) \n
-Klottra (XSS) \n
-Visa klotter (Ajax) \n
+*Registrera sig (hashning) 
+*Logga in (SQLi) 
+*Klottra (XSS) 
+*Visa klotter (Ajax) 
 
  
 ## Dependencies
@@ -50,8 +50,8 @@ id | user_id | comment | datetime
 
 ## Credits
  
-Andreas "s4wny" Wallström \n
-Filip "25F7" Lindvall
+*Andreas "s4wny" Wallström 
+*Filip "25F7" Lindvall
  
 ## TODO
 
