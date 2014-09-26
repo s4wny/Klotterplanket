@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Helvetica;
+    background: url(http://subtlepatterns.com/patterns/geometry2.png);
+    min-height: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+h1 { 
+    font-weight: 100;
+}
+
+.klotter {
+    border: 1px solid whiteSmoke;
+    margin-bottom: 1rem;
+}
+
+form > * {
+    display: block;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+}
+
+.island {
+    margin: 2rem 0;
+}

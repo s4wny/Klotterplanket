@@ -3,11 +3,11 @@ Gör ett klotter plank.
 
 // Registrera sig
 
-    id | user | mail | password
+    id | user | password
 
 // Klottra
 
-    id | user_id | comment | date
+    id | user_id | comment
 
 
 // Logga in (SQLi)  
