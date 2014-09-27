@@ -2,6 +2,11 @@
 
 session_start();
 
+if(isset($_SESSION['flash']['success'])) {
+    $success = $_SESSION['flash']['success'];
+    unset($_SESSION['flash']['success']);
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,9 +28,9 @@ session_start();
             </ul>
         </nav>
     
-        <?php if(isset($_SESSION['flash']['success'])): ?>
+        <?php if(isset($success)): ?>
             <ul class="success">
-                <?php foreach($_SESSION['flash']['success'] as $mess) : ?>
+                <?php foreach($success as $mess) : ?>
                     <li><?= $mess ?></li>
                 <?php endforeach; ?>
             </ul>
