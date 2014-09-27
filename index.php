@@ -21,12 +21,18 @@ if(isset($_SESSION['flash']['success'])) {
         <h1>
             Klotterplanket
         </h1>
-
+        
         <nav>
             <ul>
-                <li><a href="register.php">Registrera</a></li>
+                <?php if(isset($_SESSION['user'])) : ?>
+                    <li><a href="logout.php">Logga ut</a></li>
+                <?php else: ?>
+                    <li><a href="register.php">Registrera</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
+
+        <hr>
     
         <?php if(isset($success)): ?>
             <ul class="success">
@@ -35,12 +41,12 @@ if(isset($_SESSION['flash']['success'])) {
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-
-        <form action="login.php" method="post" class="island">
-            Användarnamn: <input type="text">
-            Lösenord: <input type="password">
-            <input type="submit">
-        </form>
+        
+        <?php if(isset($_SESSION['user'])) : ?>
+            <h4>Välkommen <?= $_SESSION['user']; ?></h4>
+        <?php else: ?>
+            <?php include 'login.php' ?>
+        <?php endif; ?>
     
 
         <form action="scribble.php" method="post" class="island">

@@ -12,7 +12,7 @@ if(!empty($_POST['userName'])) {
 	}
 
 	//Query for users with the requested username
-	$result = $dbh->query('SELECT COUNT(userName) FROM `users` WHERE `userName` = "'. $_POST['userName'] .'"')->fetch();
+	$result = $dbh->query('SELECT COUNT(*) FROM `users` WHERE `userName` = "'. $_POST['userName'] .'"')->fetch();
 
 	if($result[0] > 0) {
 		$errors[] = "Användarnamnet är upptaget!";
