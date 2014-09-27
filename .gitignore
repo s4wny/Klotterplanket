@@ -1,2 +1,3 @@
 *.sublime-project
 *.sublime-workspace
+dbConfig.php

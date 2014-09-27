@@ -27,7 +27,7 @@ h1 {
     font-weight: 100;
 }
 
-.klotter {
+.scribble {
     border: 1px solid whiteSmoke;
     margin-bottom: 1rem;
 }
@@ -43,4 +43,12 @@ textarea {
 
 .island {
     margin: 2rem 0;
+}
+
+.errors {
+    color: red;
+}
+
+.success {
+    color: green;
 }

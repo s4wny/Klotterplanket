@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,10 +19,17 @@
 
         <nav>
             <ul>
-                <li><a href="">Registrera</a></li>
+                <li><a href="register.php">Registrera</a></li>
             </ul>
         </nav>
-
+    
+        <?php if(isset($_SESSION['flash']['success'])): ?>
+            <ul class="success">
+                <?php foreach($_SESSION['flash']['success'] as $mess) : ?>
+                    <li><?= $mess ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
 
         <form action="login.php" method="post" class="island">
             Användarnamn: <input type="text">
@@ -33,22 +45,22 @@
         </form>
 
         
-        <div class="klotterplanket">
+        <div class="scribble-wrapper">
             <h2>Da klotter</h2>
 
-            <div class="klotter">
+            <div class="scribble">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, placeat, dolores nisi nostrum ut non molestiae sit atque dolore nam nulla magnam sint asperiores. Temporibus accusantium eos odio repellendus adipisci.
                 </p>
             </div>
 
-            <div class="klotter">
+            <div class="scribble">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, placeat, dolores nisi nostrum ut non molestiae sit atque dolore nam nulla magnam sint asperiores. Temporibus accusantium eos odio repellendus adipisci.
                 </p>
             </div>
 
-            <div class="klotter">
+            <div class="scribble">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, placeat, dolores nisi nostrum ut non molestiae sit atque dolore nam nulla magnam sint asperiores. Temporibus accusantium eos odio repellendus adipisci.
                 </p>
