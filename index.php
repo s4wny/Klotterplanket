@@ -43,17 +43,15 @@ if(isset($_SESSION['flash']['success'])) {
         <?php endif; ?>
         
         <?php if(isset($_SESSION['user'])) : ?>
-            <h4>Välkommen <?= $_SESSION['user']; ?></h4>
+            <h4>Välkommen <?= $_SESSION['user']['name']; ?></h4>
         <?php else: ?>
             <?php include 'login.php' ?>
         <?php endif; ?>
     
-
-        <form action="scribble.php" method="post" class="island">
-            Klottra: 
-            <textarea name="scribble"></textarea>
-            <input type="submit" value="Klottra!">
-        </form>
+        
+        <?php if(isset($_SESSION['user'])) : ?>
+            <?php include 'scribble.php'; ?>
+        <?php endif; ?>
 
         
         <div class="scribble-wrapper">

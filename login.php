@@ -11,15 +11,18 @@ if(isset($_POST['userName'])) {
 		die("Kan inte ansluta till databasen". $e->getMessage());
 	}
 
-	$sth = $dbh->prepare('SELECT COUNT(*) FROM `users` WHERE userName = "'. $_POST['userName'] .'" AND password = "'. $_POST['password'] .'"');
+	$sth = $dbh->prepare('SELECT * FROM `users` WHERE userName = "'. $_POST['userName'] .'" AND password = "'. $_POST['password'] .'"');
+
 
 	if($sth->execute()) {
 		$result = $sth->fetch();
-		
+
 		//Correct username and password, proceed
-		if($result[0] > 0) {
+		if(!empty($result)) {
 			session_start();
-			$_SESSION["user"] = $_POST['userName'];
+			$_SESSION["user"] = array('name' => $_POST['userName'],
+				                      'id'   => $result['ID']);
+
 			header('Location: index.php');
 			exit;
 		}
