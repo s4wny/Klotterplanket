@@ -1,12 +1,14 @@
-/*
-* FONTS
-**/
+/**
+ * FONTS
+ */
+
 @import url(http://fonts.googleapis.com/css?family=Reenie+Beanie);
 
 
-/*
-* GENERAL
-**/
+
+/**
+ * GENERAL
+ */
 
 * {
     box-sizing: border-box;
@@ -21,7 +23,6 @@ html {
 
 body {
     min-height: 100%;
-    height: 100%;
 }
 
 .wrapper {
@@ -37,23 +38,29 @@ h1 {
     font-weight: 100;
 }
 
-/*
-* Klottret
-**/
+hr {
+    border: 0;
+    border-top: 1px solid whiteSmoke;
+    height: 0;
+}
 
 
 
-.scribble-wrapper ul, .scribble-wrapper li{
+/**
+ * SCRIBBLE
+ */
+
+.scribble-wrapper ul, .scribble-wrapper li {
     list-style:none;
 }
 
-.scribble-wrapper ul{
+.scribble-wrapper ul {
     overflow:hidden;
     padding:3em;
     
 }
 
-.scribble-wrapper ul li a{
+.scribble-wrapper ul li a {
     text-decoration:none;
     color:#000;
     background:#ffc;
@@ -76,7 +83,7 @@ h1 {
     -webkit-transition:-webkit-transform .15s linear;
 }
 
-.scribble-wrapper ul li:nth-child(even) a{
+.scribble-wrapper ul li:nth-child(even) a {
     -o-transform:rotate(4deg);
     -webkit-transform:rotate(4deg);
     -moz-transform:rotate(4deg);
@@ -91,7 +98,7 @@ h1 {
     -ms-background-size: 100% 30px;
     background-size: 100% 30px;
 }
-.scribble-wrapper ul li:nth-child(3n) a{
+.scribble-wrapper ul li:nth-child(3n) a {
     -o-transform:rotate(-3deg);
     -webkit-transform:rotate(-3deg);
     -moz-transform:rotate(-3deg);
@@ -107,7 +114,7 @@ h1 {
     background-size: 100% 30px;
 }
 
-.scribble-wrapper ul li:nth-child(5n) a{
+.scribble-wrapper ul li:nth-child(5n) a {
     -o-transform:rotate(5deg);
     -webkit-transform:rotate(5deg);
     -moz-transform:rotate(5deg);
@@ -123,7 +130,7 @@ h1 {
     background-size: 100% 30px;
 }
 
-.scribble-wrapper ul li a:hover,ul li a:focus{
+.scribble-wrapper ul li a:hover,ul li a:focus {
     -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
     -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
     box-shadow:10px 10px 7px rgba(0,0,0,.7);
@@ -134,21 +141,22 @@ h1 {
     z-index:5;
 }
 
-.scribble-wrapper ul li a p{
+.scribble-wrapper ul li a p {
     font-family: 'Reenie Beanie', cursive;
     font-size: 180%;
 }
 
-.scribble-wrapper ul li{
+.scribble-wrapper ul li {
     margin:1% 0.5%;
     float:left;
     width:24%;
-
 }
 
-/*
-* Forms
-**/
+
+
+/**
+ * Forms
+ */
 
 form > * {
     display: block;
@@ -163,9 +171,11 @@ textarea {
     margin: 2rem 0;
 }
 
-/*
-* STATUS CODES
-**/
+
+
+/**
+ * STATUS CODES
+ */
 
 .errors {
     color: red;
@@ -173,10 +183,4 @@ textarea {
 
 .success {
     color: green;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid whiteSmoke;
-    height: 0;
 }
