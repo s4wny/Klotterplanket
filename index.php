@@ -59,24 +59,50 @@ if(isset($_SESSION['flash']['success'])) {
         <div class="scribble-wrapper">
             <h2>Da klotter</h2>
 
-            <div class="scribble">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, placeat, dolores nisi nostrum ut non molestiae sit atque dolore nam nulla magnam sint asperiores. Temporibus accusantium eos odio repellendus adipisci.
-                </p>
-            </div>
-
-            <div class="scribble">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, placeat, dolores nisi nostrum ut non molestiae sit atque dolore nam nulla magnam sint asperiores. Temporibus accusantium eos odio repellendus adipisci.
-                </p>
-            </div>
-
-            <div class="scribble">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, placeat, dolores nisi nostrum ut non molestiae sit atque dolore nam nulla magnam sint asperiores. Temporibus accusantium eos odio repellendus adipisci.
-                </p>
-            </div>
-
+            <ul>
+                <li>
+                    <a href="#">
+                        <h2>Title</h2>
+                        <p>I am a fun text. 1001001</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h2>Title 2</h2>
+                        <p>Here is some text</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h2>Title 2</h2>
+                        <p>Here is some text</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h2>Title 2</h2>
+                        <p>Here is some text</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h2>Title 2</h2>
+                        <p>Here is some text</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h2>Title 2</h2>
+                        <p>Here is some text this is some more text, lets se what happens now</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h2>Title 2</h2>
+                        <p>Here is some text</p>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </body>
