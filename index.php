@@ -54,54 +54,7 @@ if(isset($_SESSION['flash']['success'])) {
         <?php endif; ?>
 
         
-        <div class="scribble-wrapper">
-            <h2>Da klotter</h2>
-
-            <ul>
-                <li>
-                    <a href="#">
-                        <h2>Title</h2>
-                        <p>I am a fun text. 1001001</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h2>Title 2</h2>
-                        <p>Here is some text</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h2>Title 2</h2>
-                        <p>Here is some text</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h2>Title 2</h2>
-                        <p>Here is some text</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h2>Title 2</h2>
-                        <p>Here is some text</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h2>Title 2</h2>
-                        <p>Here is some text this is some more text, lets se what happens now</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h2>Title 2</h2>
-                        <p>Here is some text</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <?php include 'show_all_scribbles.php'; ?>
     </div>
 </body>
 </html>

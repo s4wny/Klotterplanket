@@ -1,7 +1,7 @@
 <?php
 
-require 'dbConfig.php';
-include 'backend/helpers.php';
+require_once 'dbConfig.php';
+include_once 'backend/helpers.php';
 
 if(!empty($_POST['userName'])) {
 	//Create connection to the database
