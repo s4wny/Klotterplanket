@@ -45,13 +45,7 @@ if(!empty($_POST['userName'])) {
 	<div class="wrapper">
 		<h1>Registrera</h1>
 			
-		<?php if(isset($errors)) : ?>
-			<ul class="errors">
-				<?php foreach($errors as $error): ?>
-					<li><?= $error ?></li>
-				<?php endforeach; ?>
-			</ul>
-		<?php endif; ?>
+		<?php include 'view/error-module.php'; ?>
 
 		<form action="register.php" method="post" class="island">
     	        Användarnamn: <input type="text" name="userName">

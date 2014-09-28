@@ -37,13 +37,7 @@ if(isset($_POST['userName'])) {
 
 ?>
 
-<?php if(isset($errors)): ?>
-	<ul class="errors">
-		<?php foreach ($errors as $error): ?>
-			<li><?= $error ?></li>
-		<?php endforeach; ?>
-	</ul>
-<?php endif; ?>
+<?php include 'view/error-module.php'; ?>
 
 <form action="" method="post" class="island">
     Användarnamn: <input type="text" name="userName">

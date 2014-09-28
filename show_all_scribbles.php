@@ -10,7 +10,7 @@ try {
     die("Kan inte ansluta till databasen". $e->getMessage());
 }
 
-$sth       = $dbh->prepare('SELECT * FROM `post`');
+$sth = $dbh->prepare('SELECT * FROM `post`');
 
 if($sth->execute()) {
     $scribbles = $sth->fetchAll();
