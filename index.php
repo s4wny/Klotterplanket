@@ -61,5 +61,11 @@ if(isset($_SESSION['flash']['success'])) {
             <?php include 'show_all_scribbles.php'; ?>
         <?php endif; ?>
     </div>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/jQuery.1.11.1.js"><\/script>')</script>
+    <script type="text/javascript" src="js/autoload.js"></script>
+    <script type="text/javascript" src="js/speedSearch.js"></script>
+
 </body>
 </html>

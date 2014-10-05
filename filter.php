@@ -17,7 +17,7 @@ try {
 
 
 $user_id  = $_GET['filter'];
-$sth = $dbh->prepare('SELECT * FROM `post` WHERE user_ID = "'. $user_id .'"');
+$sth = $dbh->prepare('SELECT * FROM `post` WHERE user_ID = "'. $user_id .'" ORDER BY id DESC');
 
 
 if($sth->execute()) {
@@ -25,7 +25,7 @@ if($sth->execute()) {
 	if(isset($_GET['offset'])){
 		$offset = $_GET['offset'];
 	}
-    $scribbles = array_slice(array_reverse($sth->fetchAll()), 16*$offset, 16);
+    $scribbles = array_slice($sth->fetchAll(), 16*$offset, 16);
 }
 else {
     die("PDO error:". print_r($sth->errorInfo(), true));
