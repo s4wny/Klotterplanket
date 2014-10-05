@@ -13,7 +13,11 @@ try {
 $sth = $dbh->prepare('SELECT * FROM `post`');
 
 if($sth->execute()) {
-    $scribbles = array_reverse($sth->fetchAll());
+    $offset = 0;
+    if(isset($_GET['offset'])){
+        $offset = $_GET['offset'];
+    }
+    $scribbles = array_slice(array_reverse($sth->fetchAll()), 16*$offset, 16);
 }
 else {
     die("PDO error:". print_r($sth->errorInfo(), true));
