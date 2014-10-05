@@ -19,7 +19,9 @@ if(isset($_SESSION['flash']['success'])) {
 <body>
     <div class="wrapper">
         <h1>
-            Klotterplanket
+            <a href="index.php" class="nostyle">
+                Klotterplanket
+            </a>
         </h1>
         
         <nav>
@@ -53,8 +55,11 @@ if(isset($_SESSION['flash']['success'])) {
             <?php include 'scribble.php'; ?>
         <?php endif; ?>
 
-        
-        <?php include 'show_all_scribbles.php'; ?>
+        <?php if(isset($_GET['show_single_scribble'])): ?>
+            <?php include 'show_single_scribble.php'; ?>
+        <?php else: ?>
+            <?php include 'show_all_scribbles.php'; ?>
+        <?php endif; ?>
     </div>
 </body>
 </html>

@@ -27,7 +27,7 @@ else {
     <ul>
         <?php foreach($scribbles as $scribble) : ?>
             <li>
-                <a href="#">
+                <a href="?show_single_scribble=<?= $scribble['ID'] ?>">
                     <p><?= $scribble['comment'] ?></p>
                 </a>
             </li>
