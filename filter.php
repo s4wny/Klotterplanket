@@ -21,7 +21,7 @@ $sth = $dbh->prepare('SELECT * FROM `post` WHERE user_ID = "'. $user_id .'"');
 
 
 if($sth->execute()) {
-    $scribbles = $sth->fetchAll();
+    $scribbles = array_reverse($sth->fetchAll());
 }
 else {
     die("PDO error:". print_r($sth->errorInfo(), true));
