@@ -55,8 +55,8 @@ if(isset($_SESSION['flash']['success'])) {
             <?php include 'scribble.php'; ?>
         <?php endif; ?>
 
-        <?php if(isset($_GET['show_single_scribble'])): ?>
-            <?php include 'show_single_scribble.php'; ?>
+        <?php if(isset($_GET['filter'])): ?>
+            <?php include 'filter.php'; ?>
         <?php else: ?>
             <?php include 'show_all_scribbles.php'; ?>
         <?php endif; ?>

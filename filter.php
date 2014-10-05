@@ -1,5 +1,10 @@
 <?php
 
+if(!isset($_GET['filter'])) {
+    header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+    die("500. Nu hände ngt knas på server sidan.");
+}
+
 require_once 'dbConfig.php';
 include_once 'backend/helpers.php';
 
@@ -10,7 +15,10 @@ try {
     die("Kan inte ansluta till databasen". $e->getMessage());
 }
 
-$sth = $dbh->prepare('SELECT * FROM `post`');
+
+$user_id  = $_GET['filter'];
+$sth = $dbh->prepare('SELECT * FROM `post` WHERE user_ID = "'. $user_id .'"');
+
 
 if($sth->execute()) {
     $scribbles = $sth->fetchAll();
@@ -22,12 +30,12 @@ else {
 ?>
 
 <div class="scribble-wrapper">
-    <h2>Da klotter</h2>
+    <h2>Enstaka klotter</h2>
 
     <ul>
         <?php foreach($scribbles as $scribble) : ?>
             <li>
-                <a href="?filter=<?= $scribble['user_ID'] ?>">
+                <a href="">
                     <p><?= $scribble['comment'] ?></p>
                 </a>
             </li>
