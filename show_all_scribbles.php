@@ -10,14 +10,15 @@ try {
     die("Kan inte ansluta till databasen". $e->getMessage());
 }
 
-$sth = $dbh->prepare('SELECT * FROM `post` ORDER BY id DESC');
+$offset = 0;
+if(isset($_GET['offset'])){
+    $offset = $_GET['offset'];
+}
+
+$sth = $dbh->prepare('SELECT * FROM `post` ORDER BY id DESC LIMIT ' . 16*$offset . ', 16');
 
 if($sth->execute()) {
-    $offset = 0;
-    if(isset($_GET['offset'])){
-        $offset = $_GET['offset'];
-    }
-    $scribbles = array_slice($sth->fetchAll(), 16*$offset, 16);
+    $scribbles = $sth->fetchAll();
 }
 else {
     die("PDO error:". print_r($sth->errorInfo(), true));
