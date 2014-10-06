@@ -17,17 +17,16 @@ function getUrlVars()
 function startAutoUpdating()
 {
 	window.ajaxUpdateTimer = setInterval(function(){
+
 		if(topOfPage())
 		{
+
 			var vals = getUrlVars(),
 				userID = 0,
-				file = 'show_all_scribbles.php',
-				offset = 0,
 				length = 1;
 
 			if(vals['filter'] !== undefined)
 			{
-				file = 'filter.php'
 				userID = vals['filter'];
 			}
 
@@ -35,19 +34,30 @@ function startAutoUpdating()
 				length = vals['offset'];
 
 			$.ajax({
-				url:file,
+				url:"scribbles.php",
+				type:"get",
+				data:{
+					length:length,
+					userID:userID
+				},
+				success:function(result){
+			    	console.log(result);
+				}
+			});
+
+			/*$.ajax({
+				url:'scribbles.php',
 				type:"get",
 				data:{
 					'length':length,
 					'userID':userID
-				},
-				success: function(resp){
-					
-				},
-				error: function(err){
-					
 				}
-			});
+			}).done(function(){
+				var toUpdate = $('.scribble-wrapper').find('ul');
+				console.log(resp);
+			});*/
+
+			alert();
 		}
 	}, 2000);
 }
@@ -71,6 +81,7 @@ function bottomOfPage()
 
 $(document).ready(function(){
 
+	startAutoUpdating();
 	$(window).on('scroll', function(){
 		
 		if(topOfPage())
