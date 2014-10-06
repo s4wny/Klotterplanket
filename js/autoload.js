@@ -14,9 +14,47 @@ function getUrlVars()
 	return values;
 }
 
+function startAutoUpdating()
+{
+	window.ajaxUpdateTimer = setInterval(function(){
+		if(topOfPage())
+		{
+			var vals = getUrlVars(),
+				userID = 0,
+				file = 'show_all_scribbles.php',
+				offset = 0,
+				length = 1;
+
+			if(vals['filter'] !== undefined)
+			{
+				file = 'filter.php'
+				userID = vals['filter'];
+			}
+
+			if(vals['offset'] !== undefined)
+				length = vals['offset'];
+
+			$.ajax({
+				url:file,
+				type:"get",
+				data:{
+					'length':length,
+					'userID':userID
+				},
+				success: function(resp){
+					
+				},
+				error: function(err){
+					
+				}
+			});
+		}
+	}, 2000);
+}
+
 function topOfPage()
 {
-	if($(window).offset().top < 20)
+	if($(window).scrollTop() < 20)
 		return true;
 	else
 		return false;
@@ -24,17 +62,16 @@ function topOfPage()
 
 function bottomOfPage()
 {
-	if(($(window).offset().top + $(window).height()) > ($(document).height() - 20))
+	if(($(window).scrollTop() + $(window).height()) > ($(document).height() - 20))
 		return true;
 	else
 		return false;
 }
 
-/*
+
 $(document).ready(function(){
-	console.log($(window));
-	console.log($(window).offset());
-	$(window).scroll(function(){
+
+	$(window).on('scroll', function(){
 		
 		if(topOfPage())
 			console.log("Top of the page");
@@ -44,4 +81,3 @@ $(document).ready(function(){
 	});
 
 });
-*/

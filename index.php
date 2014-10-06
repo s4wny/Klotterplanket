@@ -55,11 +55,12 @@ if(isset($_SESSION['flash']['success'])) {
             <?php include 'scribble.php'; ?>
         <?php endif; ?>
 
-        <?php if(isset($_GET['filter'])): ?>
-            <?php include 'filter.php'; ?>
-        <?php else: ?>
-            <?php include 'show_all_scribbles.php'; ?>
-        <?php endif; ?>
+        <div class="scribble-wrapper">
+            <h2>Da klotter</h2>
+            <ul>
+                <?php include 'scribbles.php'; ?>
+            </ul>
+        </div>
     </div>
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
