@@ -55,8 +55,13 @@ if(isset($_SESSION['flash']['success'])) {
             <?php include 'scribble.php'; ?>
         <?php endif; ?>
 
+        <div class="filter-input">
+            Search for users scribbles here: <br>
+            <input type="text" id="filter" name="filter"/>
+        </div>
+
         <div class="scribble-wrapper">
-            <h2>Da klotter</h2>
+            <h2>Scribbles!</h2>
             <ul>
                 <?php include 'scribbles.php'; ?>
             </ul>
