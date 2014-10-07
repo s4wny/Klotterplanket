@@ -21,17 +21,23 @@ if(isset($_GET['lenght'])){
 }
 
 
+$filter = -1;
 if(isset($_GET['filter'])){
-    $sth = $dbh->prepare('SELECT * FROM `post` WHERE user_ID = "'. $_GET['filter'] .'" ORDER BY id DESC LIMIT ' . 16 * $offset . ', ' . 16 * $lenght);
+    $filter = $_GET['filter'];
+    if(strlen($filter) == 0)
+        $filter = -1;
+}
+
+if($filter != -1){
+    $sth = $dbh->prepare('SELECT * FROM `post` WHERE user_ID = "'. $filter .'" ORDER BY id DESC LIMIT ' . 16 * $offset . ', ' . 16 * $lenght);
 }else{
-    $sth = $dbh->prepare('SELECT * FROM `post` ORDER BY id DESC LIMIT ' . 16*$offset . ', ' . 16 * $lenght);
+    $sth = $dbh->prepare('SELECT * FROM `post` ORDER BY id DESC LIMIT ' . 16 * $offset . ', ' . 16 * $lenght);
 }
 
 
 if($sth->execute()) {
     $scribbles = $sth->fetchAll();
-}
-else {
+} else {
     die("PDO error:". print_r($sth->errorInfo(), true));
 }
 
