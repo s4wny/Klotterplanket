@@ -21,7 +21,7 @@ function setVarsFromUrl(force)
 function Vals(name, value)
 {
 	if(value == undefined)
-		return window.vals[name] || "";
+		return (parseInt(window.vals[name]) || "");
 	else
 		window.vals[name] = parseInt(value);
 }
@@ -32,23 +32,23 @@ function startAutoUpdating()
 		window.ajaxUpdateTimer = setInterval(function(){
 			if(topOfPage() && !mutex('autoUpdate'))
 			{
-				var userID = 0,
+				var filter = 0,
 					length = 1;
 
-				if(vals['filter'] !== undefined)
-				{
-					userID = Vals("filter");
-				}
+				filter = Vals("filter");
+				length = (parseInt(Vals("offset")) || 0) + (parseInt(Vals("length")) || 0);
+				if(filter == undefined)
+					filter = "";
 
-				if(vals['offset'] !== undefined)
-					length = Vals("offset") + Vals("length");
-				alert();
+				if(length == undefined)
+					length = "1";
+				
 				$.ajax({
 					url:"scribbles.php",
 					type:"get",
 					data:{
 						length:length,
-						filter:userID
+						filter:filter
 					},
 					success:function(result){
 						var toUpdate = $('.scribble-wrapper').find('ul');
@@ -77,8 +77,12 @@ $(document).ready(function(){
 		{
 
 			setMutex('ajaxLock');
-			offset = Vals('offset');
+			offset = Vals('length');
 			filter = Vals('filter');
+			if(offset == undefined)
+				offset = "";
+			if(filter == undefined)
+				filter = "";
 			$.ajax({
 				url:"scribbles.php",
 				type:"get",
