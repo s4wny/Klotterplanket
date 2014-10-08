@@ -58,6 +58,9 @@ if(isset($_SESSION['flash']['success'])) {
         <div class="filter-input">
             Search for users scribbles here: <br>
             <input type="text" id="filter" name="filter"/>
+            <div class="sugg">
+                
+            </div>
         </div>
 
         <div class="scribble-wrapper">

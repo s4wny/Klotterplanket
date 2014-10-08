@@ -176,6 +176,34 @@ textarea {
     margin: 2rem 0;
 }
 
+/**
+* QuickSearch
+*
+*/
+#filter{
+    width: 400px;
+    height: 40px;
+}
+
+.sugg{
+    width: 400px;
+    /*border: 1px solid green;/**/
+}
+
+.sugg a{
+    display: block;
+    padding: 5px;
+    margin: 2px;
+    background-color: #ccc;
+    color: black;
+    text-decoration: none;
+}
+
+.sugg a:visited{
+
+}
+
+
 
 
 /**

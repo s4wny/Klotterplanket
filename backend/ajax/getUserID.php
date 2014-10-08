@@ -1,11 +1,10 @@
 <?php
-//header('Content-Type: application/json');		//Easier for browser to read... Mabey..
+header('Content-Type: application/json');		//Easier for browser to read... Mabey..
 
 require_once '../../dbConfig.php';
 include_once '../helpers.php';
 
 $data = array();
-echo "some text ";
 if(isset($_GET["username"]))					//We want the ids of the posts that we have sent, so that we dont send them again.
 	$name = $_GET["username"];					//We should mabey not send them as json. But for the time being 
 
@@ -27,23 +26,15 @@ if($sth->execute()) {
 foreach ($users as $user) {
 	if(strcasecmp(substr($user['userName'], 0, strlen($name)), $name) == 0)
 	{
-		echo "string";
+		array_push($data, array("user_name" => $user['userName'], "ID" => $user['ID']));
 	}
-	echo "Some nice text ". $user['userName'] . "Value";
-	
-	array_push($data, $user);
 }
 
-print_r($data);
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+	/* special ajax here */
+	die(json_encode($data));
+} else {
+	array_push($data, array("ID" => ""));
+	header("Location: ../../index.php?filter=" . $data[0]['ID']);
+}
 
-
-?>
-
-<html>
-	<head>
-		<meta charset="utf-8" />
-	</head>
-	<body>
-		<p>Text</p>
-	</body>
-</html>
