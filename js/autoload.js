@@ -34,7 +34,6 @@ function startAutoUpdating()
 			{
 				var userID = 0,
 					length = 1;
-				alert("TOP");
 
 				if(vals['filter'] !== undefined)
 				{
@@ -73,23 +72,25 @@ $(document).ready(function(){
 	setVarsFromUrl();
 	startAutoUpdating();
 	$(window).on('scroll', function(){
-		
-		if(bottomOfPage())
+
+		if(bottomOfPage() && !mutex('ajaxLock'))
 		{
-			if(mutex('autoLoad'))
-				return;
+
+			setMutex('ajaxLock');
+			offset = Vals('offset');
+			filter = Vals('filter');
 			$.ajax({
 				url:"scribbles.php",
 				type:"get",
 				data:{
-					offset:Vals('length'),
-					filter:Vals('filter')
+					offset:offset,
+					filter:filter
 				},
 				success:function(result){
 					var toUpdate = $('.scribble-wrapper').find('ul');
 					toUpdate.append(result);
 					Vals("length", parseInt(Vals("length")) + 1);
-					setMutex('autoLoad', 1000);
+					unlockMutex('ajaxLock');
 				}
 			});
 		}
@@ -100,11 +101,28 @@ $(document).ready(function(){
 
 //helper functions
 function setMutex(name,time){
+	if(name == undefined)
+		return;
 	clearTimeout(window[name]);
+	if(time === undefined)
+	{
+		window[name] = true;
+		return;
+	}
+	
 	window[name] = setTimeout(function(){
 		window[name] = null;
 	}, time);
 }
+
+function unlockMutex(name)
+{
+	if(name == undefined)
+		return;
+	clearTimeout(window[name]);
+	window[name] = null;
+}
+
 function mutex(name)	{ return !(window[name] == null || window[name] == undefined); }
-function topOfPage()	{ return ($(window).scrollTop() <= 20); }
-function bottomOfPage()	{ return (($(window).scrollTop() + $(window).height()) > ($(document).height() - 20)); }
+function topOfPage()	{ return ($(window).scrollTop() <= 0); }
+function bottomOfPage()	{ return (($(window).scrollTop() + $(window).height()) >= ($(document).height())); }
