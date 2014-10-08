@@ -15,9 +15,9 @@ if(isset($_GET['offset'])){
     $offset = $_GET['offset'];
 }
 
-$lenght = 1;
-if(isset($_GET['lenght'])){
-    $lenght = $_GET['lenght'];
+$length = 1;
+if(isset($_GET['length'])){
+    $length = $_GET['length'];
 }
 
 
@@ -29,9 +29,9 @@ if(isset($_GET['filter'])){
 }
 
 if($filter != -1){
-    $sth = $dbh->prepare('SELECT * FROM `post` WHERE user_ID = "'. $filter .'" ORDER BY id DESC LIMIT ' . 16 * $offset . ', ' . 16 * $lenght);
+    $sth = $dbh->prepare('SELECT * FROM `post` WHERE user_ID = "'. $filter .'" ORDER BY id DESC LIMIT ' . 16 * $offset . ', ' . 16 * $length);
 }else{
-    $sth = $dbh->prepare('SELECT * FROM `post` ORDER BY id DESC LIMIT ' . 16 * $offset . ', ' . 16 * $lenght);
+    $sth = $dbh->prepare('SELECT * FROM `post` ORDER BY id DESC LIMIT ' . 16 * $offset . ', ' . 16 * $length);
 }
 
 

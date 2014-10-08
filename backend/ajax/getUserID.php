@@ -29,7 +29,7 @@ foreach ($users as $user) {
 	{
 		echo "string";
 	}
-	echo "Some nice text " $user['userName'] . "Value";
+	echo "Some nice text ". $user['userName'] . "Value";
 	
 	array_push($data, $user);
 }
