@@ -11,7 +11,7 @@ if(!isset($_SESSION['user'])) {
 if(isset($_POST['scribble'])) {
 	//Create connection to the database
 	try {
-		$dbh = new PDO('mysql:host=localhost;dbname=Klotter;charset=utf8', DB_USER, DB_PASSWORD);
+		$dbh = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASSWORD);
 	} catch(PDOException $e) {
 		die("Kan inte ansluta till databasen". $e->getMessage());
 	}

@@ -10,7 +10,7 @@ if(isset($_GET["username"]))					//We want the ids of the posts that we have sen
 	$name = $_GET["username"];					//We should mabey not send them as json. But for the time being 
 
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=Klotter;charset=utf8', DB_USER, DB_PASSWORD);
+    $dbh = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASSWORD);
 } catch(PDOException $e) {
     die("Kan inte ansluta till databasen". $e->getMessage());
 }
@@ -35,12 +35,7 @@ foreach ($users as $user) {
 }
 
 print_r($data);
-/*
-function comp($str1, $str2)
-{
-	return strcasecmp(substr($str2, 0, strlen($str1)), $str1)
-}
-//*/
+
 
 ?>
 

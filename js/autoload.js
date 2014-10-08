@@ -43,7 +43,7 @@ function startAutoUpdating()
 
 				if(vals['offset'] !== undefined)
 					length = Vals("offset") + Vals("length");
-
+				alert();
 				$.ajax({
 					url:"scribbles.php",
 					type:"get",
@@ -105,6 +105,6 @@ function setMutex(name,time){
 		window[name] = null;
 	}, time);
 }
-function mutex(name)	{ return (window[name] == null || window[name] == undefined); }
+function mutex(name)	{ return !(window[name] == null || window[name] == undefined); }
 function topOfPage()	{ return ($(window).scrollTop() <= 20); }
 function bottomOfPage()	{ return (($(window).scrollTop() + $(window).height()) > ($(document).height() - 20)); }
